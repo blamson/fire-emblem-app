@@ -1,3 +1,7 @@
+# python stuff
+.python-version
+.ipynb_checkpoints
+
 # History files
 .Rhistory
 .Rapp.history
