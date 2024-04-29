@@ -1,74 +1,74 @@
 ,Name,HP_growth,S/M_growth,Skl_growth,Spd_growth,Lck_growth,Def_growth,Res_growth,Class,Lv,HP_base,S/M_base,Skl_base,Spd_base,Lck_base,Def_base,Res_base,Con,Mov,Affin,Weapon ranks,Game
-0,Allen,85,45,40,45,40,25,10,Cavalier,1,21,7,4,6,3,6,0,9,7,['Fire'],"['E Sword', 'D Lance']",binding-blade
-1,Astohl,90,35,40,50,15,20,20,Thief,10,25,7,8,15,11,7,3,8,6,['AffinDark'],['C Sword'],binding-blade
-2,Barth,100,60,25,20,20,40,2,Knight,9,25,10,6,5,2,14,1,16,4,['Ice'],['C Lance'],binding-blade
-3,Bartre,70,40,20,30,20,20,5,Warrior,2,48,22,11,10,14,10,3,14,6,['Thunder'],"['A Axe', 'D Bow']",binding-blade
-4,Bors,90,30,30,40,50,35,10,Knight,1,20,7,4,3,4,11,0,14,4,['Wind'],['C Lance'],binding-blade
-5,Brunya,,,,,,,,Sage,20,38,23,18,18,17,18,25,6,6,–,"['A Staff', 'A Anima']",binding-blade
-6,Cath,80,40,45,85,50,15,20,Thief,5,16,3,7,11,8,2,1,5,6,['AffinAnima'],['E Sword'],binding-blade
-7,Cath (HM),,,,,,,,20,3,11,15,12,2,3,,,,,,,binding-blade
-8,Cecilia,60,35,45,25,25,20,25,Valkyria,1,30,11,7,10,10,7,13,6,8,['AffinAnima'],"['C Staff', 'A Anima']",binding-blade
-9,Chad,85,50,50,80,60,25,15,Thief,1,16,3,3,10,4,2,0,5,6,['Thunder'],['E Sword'],binding-blade
-10,Clarine,40,30,40,50,65,10,40,Troubadour,1,15,2,5,9,8,2,5,5,7,['Thunder'],['D Staff'],binding-blade
-11,Dayan,55,20,20,15,20,10,10,Nomadic Trooper,12,43,14,16,20,12,10,12,9,8,['AffinAnima'],"['C Sword', 'A Bow']",binding-blade
-12,Dieck,90,40,40,30,35,20,15,Mercenary,5,26,9,12,10,5,6,1,13,5,['Thunder'],['C Sword'],binding-blade
-13,Dorothy,85,50,45,45,35,15,15,Archer,3,19,5,6,6,3,4,2,7,5,['Fire'],['D Bow'],binding-blade
-14,Douglas,60,30,30,30,20,30,5,General,8,46,19,13,8,11,20,5,17,5,['Thunder'],"['A Lance', 'A Axe']",binding-blade
-15,Echidna,75,30,25,30,20,15,15,Hero,1,35,13,19,18,6,8,7,9,6,['Ice'],"['C Sword', 'B Axe']",binding-blade
-16,Eliwood,,,,,,,,Paladin,20,48,25,20,22,14,24,15,11,8,['AffinAnima'],"['A Sword', 'S Lance', 'C Axe']",binding-blade
-17,Ellen,45,50,30,20,70,5,60,Priest,2,16,1,6,8,8,0,6,4,5,['Wind'],['D Staff'],binding-blade
-18,Elphin,80,5,5,65,65,25,55,Bard,1,15,1,3,10,11,4,1,6,5,['AffinLight'],–,binding-blade
-19,Fa,130,90,85,65,150,30,50,Mamkute,1,16,2,2,3,7,2,6,1,5,['AffinLight'],–,binding-blade
-20,Fir,75,25,50,55,50,15,20,Myrmidon,1,19,6,9,10,3,3,1,5,5,['Fire'],['D Sword'],binding-blade
-21,Fir (HM),,,,,,,,25,9,12,13,5,4,2,,,,,,,binding-blade
-22,Gale,,,,,,,,Wyvern Lord,18,49,22,15,13,11,22,14,12,8,['Ice'],"['A Sword', 'A Lance']",binding-blade
-23,Garret,70,45,25,25,15,15,5,Berserker,1,49,17,13,10,12,9,4,13,6,['Wind'],['C Axe'],binding-blade
-24,Garret (HM),,,,,,,,55,21,16,11,14,10,5,,,,,,,binding-blade
-25,Geese,85,50,30,40,40,20,10,Pirate,10,33,10,9,9,9,8,0,11,5,['Fire'],['B Axe'],binding-blade
-26,Gonzales,90,60,15,50,35,25,5,Bandit,5,36,12,5,9,5,6,0,15,5,['Thunder'],['C Axe'],binding-blade
-27,Gonzales (HM),,,,,,,,43,16,7,11,6,7,1,,,,,,,binding-blade
-28,Guinevere,,,,,,,,Sage,20,29,24,24,23,24,13,25,5,6,['AffinLight'],"['A Staff', 'B Anima', 'S Light']",binding-blade
-29,Hector,,,,,,,,General,20,43,18,20,10,15,30,15,20,5,['Thunder'],"['A Lance', 'A Axe']",binding-blade
-30,Hugh,75,30,30,45,25,20,15,Mage,15,26,13,11,12,10,9,9,7,5,['Wind'],['C Anima'],binding-blade
-31,Igrene,70,35,25,35,20,10,5,Sniper,1,32,16,18,15,9,11,10,7,6,['Ice'],['B Bow'],binding-blade
-32,Juno,50,20,35,30,45,10,10,Falcon Knight,9,33,11,14,16,14,8,12,7,8,['AffinLight'],"['E Sword', 'A Lance']",binding-blade
-33,Karel,210,130,140,140,120,110,100,Swordmaster,19,44,20,28,23,18,15,13,9,6,['AffinLight'],['S Sword'],binding-blade
-34,Klein,60,35,40,45,50,15,25,Sniper,1,27,13,13,11,10,8,6,7,6,['Ice'],['A Bow'],binding-blade
-35,Klein (HM),,,,,,,,33,16,16,13,13,9,7,,,,,,,binding-blade
-36,Lalum,70,10,5,70,80,20,30,Dancer,1,14,1,2,11,9,2,4,4,5,['Thunder'],–,binding-blade
-37,Lance,80,40,45,50,35,20,15,Cavalier,1,20,5,6,8,2,6,0,9,7,['AffinAnima'],"['E Sword', 'D Lance']",binding-blade
-38,Lilina,45,75,20,35,50,10,35,Mage,1,16,5,5,4,4,2,7,4,5,['AffinLight'],['C Anima'],binding-blade
-39,Lott,80,30,30,35,30,40,15,Fighter,3,29,7,6,7,2,4,1,12,5,['AffinAnima'],['D Axe'],binding-blade
-40,Lugh,50,40,50,50,35,15,30,Mage,1,16,4,5,6,5,3,5,4,5,['Fire'],['D Anima'],binding-blade
-41,Marcus,60,25,20,25,20,15,20,Paladin,1,32,9,14,11,10,9,8,11,8,['Ice'],"['D Sword', 'A Lance', 'E Axe']",binding-blade
-42,Merlinus,100,0,50,50,100,20,5,Transporter,1,15,0,3,3,10,3,0,25,5,['AffinDark'],–,binding-blade
-43,Miredy,75,50,50,45,25,20,5,Wyvern Rider,10,30,12,11,10,5,13,3,9,7,['AffinDark'],['C Lance'],binding-blade
-44,Miredy (HM),,,,,,,,38,17,15,13,8,16,4,,,,,,,binding-blade
-45,Murdoch,,,,,,,,General,20,60,27,19,12,12,25,17,20,5,–,"['A Lance', 'A Axe']",binding-blade
-46,Narshen,,,,,,,,Wyvern Lord,10,46,16,13,16,13,20,12,11,8,–,"['A Sword', 'A Lance']",binding-blade
-47,Niime,25,15,15,15,5,15,20,Druid,18,25,21,20,16,15,5,18,4,6,['AffinAnima'],"['A Staff', 'A Dark']",binding-blade
-48,Noah,75,30,45,30,40,30,10,Cavalier,7,27,8,7,9,6,7,1,10,7,['AffinAnima'],"['C Sword', 'D Lance']",binding-blade
-49,Oujay,85,40,30,45,55,20,15,Mercenary,3,24,7,10,9,6,4,0,8,5,['Wind'],['D Sword'],binding-blade
-50,Percival,75,30,25,35,20,20,10,Paladin,5,43,17,13,18,12,14,11,12,8,['AffinDark'],"['A Sword', 'A Lance', 'C Axe']",binding-blade
-51,Percival (HM),,,,,,,,51,20,16,20,15,15,13,,,,,,,binding-blade
-52,Ray,55,45,55,40,15,15,35,Shaman,12,23,12,9,9,6,5,10,4,5,['Ice'],['C Dark'],binding-blade
-53,Roy,80,40,50,40,60,25,30,Lord,1,18,5,5,7,7,5,0,6,5,['Fire'],['D Sword'],binding-blade
-54,Rutger,80,30,60,50,30,20,20,Myrmidon,4,22,7,12,13,2,5,0,7,5,['AffinDark'],['C Sword'],binding-blade
-55,Rutger (HM),,,,,,,,26,9,14,15,4,6,1,,,,,,,binding-blade
-56,Saul,60,40,45,45,15,15,50,Priest,5,20,4,6,10,2,2,5,6,5,['Ice'],['C Staff'],binding-blade
-57,Shin,75,45,50,50,25,10,15,Nomad,5,24,7,8,10,6,7,0,7,7,['Ice'],['D Bow'],binding-blade
-58,Shin (HM),,,,,,,,29,9,11,14,8,8,1,,,,,,,binding-blade
-59,Sofiya,60,55,40,30,20,20,55,Shaman,1,15,6,2,4,3,1,8,3,5,['AffinDark'],['C Dark'],binding-blade
-60,Sue,55,30,55,65,50,10,15,Nomad,1,18,5,7,8,4,5,0,5,7,['Wind'],['D Bow'],binding-blade
-61,Tate,60,40,45,55,40,15,20,Pegasus Knight,8,22,6,8,11,3,7,6,5,7,['Ice'],['D Lance'],binding-blade
-62,Tate (HM),,,,,,,,28,9,12,15,6,8,8,,,,,,,binding-blade
-63,Thany,45,30,55,60,60,10,25,Pegasus Knight,1,17,4,6,12,5,6,5,4,7,['Wind'],['D Lance'],binding-blade
-64,Treck,85,40,30,35,50,30,5,Cavalier,4,25,8,6,7,5,8,0,9,7,['Wind'],"['E Sword', 'D Lance']",binding-blade
-65,Wade,75,50,45,20,45,30,5,Fighter,2,28,8,3,5,4,3,0,13,5,['Fire'],['D Axe'],binding-blade
-66,Wendy,85,40,40,40,45,30,10,Knight,1,19,4,3,3,6,8,1,10,4,['Fire'],['D Lance'],binding-blade
-67,Wolt,80,40,50,40,40,20,10,Archer,1,18,4,4,5,2,4,0,7,5,['Ice'],['D Bow'],binding-blade
-68,Yodel,20,30,15,10,20,10,20,Bishop,20,35,19,18,14,11,5,30,6,6,['AffinLight'],"['S Staff', 'A Light']",binding-blade
-69,Zealot,75,25,20,20,15,30,15,Paladin,1,35,10,12,13,5,11,7,11,8,['AffinDark'],"['C Sword', 'A Lance', 'D Axe']",binding-blade
-70,Zeis,80,60,50,35,20,25,5,Wyvern Rider,7,28,14,9,8,6,12,2,10,7,['Thunder'],['D Lance'],binding-blade
-71,Zeis (HM),,,,,,,,37,19,13,11,9,15,3,,,,,,,binding-blade
-72,Zephiel,,,,,,,,King,20,60,24,20,14,15,22,24,17,5,–,['S Sword'],binding-blade
+0,Roy,80,40,50,40,60,25,30,Lord,1,18,5,5,7,7,5,0,6,5,['Fire'],['D Sword'],binding-blade
+1,Marcus,60,25,20,25,20,15,20,Paladin,1,32,9,14,11,10,9,8,11,8,['Ice'],"['D Sword', 'A Lance', 'E Axe']",binding-blade
+2,Allen,85,45,40,45,40,25,10,Cavalier,1,21,7,4,6,3,6,0,9,7,['Fire'],"['E Sword', 'D Lance']",binding-blade
+3,Lance,80,40,45,50,35,20,15,Cavalier,1,20,5,6,8,2,6,0,9,7,['AffinAnima'],"['E Sword', 'D Lance']",binding-blade
+4,Wolt,80,40,50,40,40,20,10,Archer,1,18,4,4,5,2,4,0,7,5,['Ice'],['D Bow'],binding-blade
+5,Bors,90,30,30,40,50,35,10,Knight,1,20,7,4,3,4,11,0,14,4,['Wind'],['C Lance'],binding-blade
+6,Merlinus,100,0,50,50,100,20,5,Transporter,1,15,0,3,3,10,3,0,25,5,['AffinDark'],–,binding-blade
+7,Ellen,45,50,30,20,70,5,60,Priest,2,16,1,6,8,8,0,6,4,5,['Wind'],['D Staff'],binding-blade
+8,Dieck,90,40,40,30,35,20,15,Mercenary,5,26,9,12,10,5,6,1,13,5,['Thunder'],['C Sword'],binding-blade
+9,Wade,75,50,45,20,45,30,5,Fighter,2,28,8,3,5,4,3,0,13,5,['Fire'],['D Axe'],binding-blade
+10,Lott,80,30,30,35,30,40,15,Fighter,3,29,7,6,7,2,4,1,12,5,['AffinAnima'],['D Axe'],binding-blade
+11,Thany,45,30,55,60,60,10,25,Pegasus Knight,1,17,4,6,12,5,6,5,4,7,['Wind'],['D Lance'],binding-blade
+12,Chad,85,50,50,80,60,25,15,Thief,1,16,3,3,10,4,2,0,5,6,['Thunder'],['E Sword'],binding-blade
+13,Lugh,50,40,50,50,35,15,30,Mage,1,16,4,5,6,5,3,5,4,5,['Fire'],['D Anima'],binding-blade
+14,Clarine,40,30,40,50,65,10,40,Troubadour,1,15,2,5,9,8,2,5,5,7,['Thunder'],['D Staff'],binding-blade
+15,Rutger,80,30,60,50,30,20,20,Myrmidon,4,22,7,12,13,2,5,0,7,5,['AffinDark'],['C Sword'],binding-blade
+16,Saul,60,40,45,45,15,15,50,Priest,5,20,4,6,10,2,2,5,6,5,['Ice'],['C Staff'],binding-blade
+17,Dorothy,85,50,45,45,35,15,15,Archer,3,19,5,6,6,3,4,2,7,5,['Fire'],['D Bow'],binding-blade
+18,Sue,55,30,55,65,50,10,15,Nomad,1,18,5,7,8,4,5,0,5,7,['Wind'],['D Bow'],binding-blade
+19,Zealot,75,25,20,20,15,30,15,Paladin,1,35,10,12,13,5,11,7,11,8,['AffinDark'],"['C Sword', 'A Lance', 'D Axe']",binding-blade
+20,Treck,85,40,30,35,50,30,5,Cavalier,4,25,8,6,7,5,8,0,9,7,['Wind'],"['E Sword', 'D Lance']",binding-blade
+21,Noah,75,30,45,30,40,30,10,Cavalier,7,27,8,7,9,6,7,1,10,7,['AffinAnima'],"['C Sword', 'D Lance']",binding-blade
+22,Astohl,90,35,40,50,15,20,20,Thief,10,25,7,8,15,11,7,3,8,6,['AffinDark'],['C Sword'],binding-blade
+23,Lilina,45,75,20,35,50,10,35,Mage,1,16,5,5,4,4,2,7,4,5,['AffinLight'],['C Anima'],binding-blade
+24,Wendy,85,40,40,40,45,30,10,Knight,1,19,4,3,3,6,8,1,10,4,['Fire'],['D Lance'],binding-blade
+25,Barth,100,60,25,20,20,40,2,Knight,9,25,10,6,5,2,14,1,16,4,['Ice'],['C Lance'],binding-blade
+26,Oujay,85,40,30,45,55,20,15,Mercenary,3,24,7,10,9,6,4,0,8,5,['Wind'],['D Sword'],binding-blade
+27,Fir,75,25,50,55,50,15,20,Myrmidon,1,19,6,9,10,3,3,1,5,5,['Fire'],['D Sword'],binding-blade
+28,Shin,75,45,50,50,25,10,15,Nomad,5,24,7,8,10,6,7,0,7,7,['Ice'],['D Bow'],binding-blade
+29,Gonzales,90,60,15,50,35,25,5,Bandit,5,36,12,5,9,5,6,0,15,5,['Thunder'],['C Axe'],binding-blade
+30,Geese,85,50,30,40,40,20,10,Pirate,10,33,10,9,9,9,8,0,11,5,['Fire'],['B Axe'],binding-blade
+31,Klein,60,35,40,45,50,15,25,Sniper,1,27,13,13,11,10,8,6,7,6,['Ice'],['A Bow'],binding-blade
+32,Tate,60,40,45,55,40,15,20,Pegasus Knight,8,22,6,8,11,3,7,6,5,7,['Ice'],['D Lance'],binding-blade
+33,Lalum,70,10,5,70,80,20,30,Dancer,1,14,1,2,11,9,2,4,4,5,['Thunder'],–,binding-blade
+34,Echidna,75,30,25,30,20,15,15,Hero,1,35,13,19,18,6,8,7,9,6,['Ice'],"['C Sword', 'B Axe']",binding-blade
+35,Elphin,80,5,5,65,65,25,55,Bard,1,15,1,3,10,11,4,1,6,5,['AffinLight'],–,binding-blade
+36,Bartre,70,40,20,30,20,20,5,Warrior,2,48,22,11,10,14,10,3,14,6,['Thunder'],"['A Axe', 'D Bow']",binding-blade
+37,Ray,55,45,55,40,15,15,35,Shaman,12,23,12,9,9,6,5,10,4,5,['Ice'],['C Dark'],binding-blade
+38,Cath,80,40,45,85,50,15,20,Thief,5,16,3,7,11,8,2,1,5,6,['AffinAnima'],['E Sword'],binding-blade
+39,Miredy,75,50,50,45,25,20,5,Wyvern Rider,10,30,12,11,10,5,13,3,9,7,['AffinDark'],['C Lance'],binding-blade
+40,Percival,75,30,25,35,20,20,10,Paladin,5,43,17,13,18,12,14,11,12,8,['AffinDark'],"['A Sword', 'A Lance', 'C Axe']",binding-blade
+41,Cecilia,60,35,45,25,25,20,25,Valkyria,1,30,11,7,10,10,7,13,6,8,['AffinAnima'],"['C Staff', 'A Anima']",binding-blade
+42,Sofiya,60,55,40,30,20,20,55,Shaman,1,15,6,2,4,3,1,8,3,5,['AffinDark'],['C Dark'],binding-blade
+43,Igrene,70,35,25,35,20,10,5,Sniper,1,32,16,18,15,9,11,10,7,6,['Ice'],['B Bow'],binding-blade
+44,Garret,70,45,25,25,15,15,5,Berserker,1,49,17,13,10,12,9,4,13,6,['Wind'],['C Axe'],binding-blade
+45,Fa,130,90,85,65,150,30,50,Mamkute,1,16,2,2,3,7,2,6,1,5,['AffinLight'],–,binding-blade
+46,Hugh,75,30,30,45,25,20,15,Mage,15,26,13,11,12,10,9,9,7,5,['Wind'],['C Anima'],binding-blade
+47,Zeis,80,60,50,35,20,25,5,Wyvern Rider,7,28,14,9,8,6,12,2,10,7,['Thunder'],['D Lance'],binding-blade
+48,Douglas,60,30,30,30,20,30,5,General,8,46,19,13,8,11,20,5,17,5,['Thunder'],"['A Lance', 'A Axe']",binding-blade
+49,Niime,25,15,15,15,5,15,20,Druid,18,25,21,20,16,15,5,18,4,6,['AffinAnima'],"['A Staff', 'A Dark']",binding-blade
+50,Dayan,55,20,20,15,20,10,10,Nomadic Trooper,12,43,14,16,20,12,10,12,9,8,['AffinAnima'],"['C Sword', 'A Bow']",binding-blade
+51,Juno,50,20,35,30,45,10,10,Falcon Knight,9,33,11,14,16,14,8,12,7,8,['AffinLight'],"['E Sword', 'A Lance']",binding-blade
+52,Yodel,20,30,15,10,20,10,20,Bishop,20,35,19,18,14,11,5,30,6,6,['AffinLight'],"['S Staff', 'A Light']",binding-blade
+53,Karel,210,130,140,140,120,110,100,Swordmaster,19,44,20,28,23,18,15,13,9,6,['AffinLight'],['S Sword'],binding-blade
+54,Rutger (HM),,,,,,,,26,9,14,15,4,6,1,,,,,,,binding-blade
+55,Fir (HM),,,,,,,,25,9,12,13,5,4,2,,,,,,,binding-blade
+56,Shin (HM),,,,,,,,29,9,11,14,8,8,1,,,,,,,binding-blade
+57,Gonzales (HM),,,,,,,,43,16,7,11,6,7,1,,,,,,,binding-blade
+58,Klein (HM),,,,,,,,33,16,16,13,13,9,7,,,,,,,binding-blade
+59,Tate (HM),,,,,,,,28,9,12,15,6,8,8,,,,,,,binding-blade
+60,Cath (HM),,,,,,,,20,3,11,15,12,2,3,,,,,,,binding-blade
+61,Miredy (HM),,,,,,,,38,17,15,13,8,16,4,,,,,,,binding-blade
+62,Percival (HM),,,,,,,,51,20,16,20,15,15,13,,,,,,,binding-blade
+63,Garret (HM),,,,,,,,55,21,16,11,14,10,5,,,,,,,binding-blade
+64,Zeis (HM),,,,,,,,37,19,13,11,9,15,3,,,,,,,binding-blade
+65,Narshen,,,,,,,,Wyvern Lord,10,46,16,13,16,13,20,12,11,8,–,"['A Sword', 'A Lance']",binding-blade
+66,Gale,,,,,,,,Wyvern Lord,18,49,22,15,13,11,22,14,12,8,['Ice'],"['A Sword', 'A Lance']",binding-blade
+67,Hector,,,,,,,,General,20,43,18,20,10,15,30,15,20,5,['Thunder'],"['A Lance', 'A Axe']",binding-blade
+68,Brunya,,,,,,,,Sage,20,38,23,18,18,17,18,25,6,6,–,"['A Staff', 'A Anima']",binding-blade
+69,Eliwood,,,,,,,,Paladin,20,48,25,20,22,14,24,15,11,8,['AffinAnima'],"['A Sword', 'S Lance', 'C Axe']",binding-blade
+70,Murdoch,,,,,,,,General,20,60,27,19,12,12,25,17,20,5,–,"['A Lance', 'A Axe']",binding-blade
+71,Zephiel,,,,,,,,King,20,60,24,20,14,15,22,24,17,5,–,['S Sword'],binding-blade
+72,Guinevere,,,,,,,,Sage,20,29,24,24,23,24,13,25,5,6,['AffinLight'],"['A Staff', 'B Anima', 'S Light']",binding-blade
