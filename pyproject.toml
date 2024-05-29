@@ -16,6 +16,9 @@ xlsx2csv = "^0.8.2"
 duckdb = "^0.10.3"
 pyarrow = "^16.1.0"
 dash = "^2.17.0"
+dash-mantine-components = "^0.14.3"
+dash-bootstrap-components = "^1.6.0"
+streamlit = "^1.35.0"
 
 
 [build-system]
