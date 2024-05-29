@@ -29,8 +29,12 @@ data_load_state = st.text("Loading Data")
 data = load_data(con)
 data_load_state.text("Done! (using st.cache_data)")
 
-stats = data.select(pl.col("Attribute").unique())
-stats = stats.to_series().to_list()
+stats = (
+    data
+    .select(pl.col("Attribute").unique())
+    .to_series().to_list()
+)
+stats.sort()
 stat = st.selectbox(
     label="Stat Filter $\\alpha = 52$", options=stats, index=stats.index("Power")
 )
@@ -47,6 +51,6 @@ fig.update_traces(marker_size=7)
 fig.update_layout(template="plotly_dark")
 
 event = st.plotly_chart(fig, key="comp_bar", on_select="rerun")
-st.write(data)
+st.dataframe(data)
 
 event
