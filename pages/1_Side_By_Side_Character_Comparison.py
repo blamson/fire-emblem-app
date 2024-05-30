@@ -2,8 +2,8 @@ import streamlit as st
 import plotly.express as px
 import polars as pl
 import duckdb
-from duckdb import sql
 
+# General page info
 st.set_page_config(
     page_title="Character Comparison",
     page_icon="🗡"
@@ -16,21 +16,37 @@ st.write(
     """
 )
 
+# Duckdb connection and data loading
 path = "data/duckdb/db.duckdb"
 con = duckdb.connect(path, read_only=True)
 
+
 def load_data(con, table: str):
 
-    return con.sql(
-        f"""
-        SELECT *
-        FROM {table}
-        """
-    ).pl()
+    if table == "baseswide":
+        return con.sql(
+            f"""
+            SELECT
+                {table}.name
+                , {table}.hp
+                , {table}.power
+                , {table}.skill
+                , {table}.speed
+                , {table}.luck
+                , {table}.defense
+                , {table}.resistance
+                , c.campaign
+            FROM {table}
+            LEFT JOIN campaigns c
+            ON {table}.campaignid = c.id
+            """
+        ).pl()
 
-# data_load_state = st.text("Loading Data")
+    return con.sql(f"SELECT * FROM {table}").pl()
+
+
+# Setup character selection for filtering
 characters = load_data(con, "characters")
-# data_load_state.text("Data Loaded!")
 
 names = (
     characters
@@ -44,43 +60,33 @@ char_select = st.multiselect(
     placeholder="Choose up to 3 Characters"
 )
 
-# ----- [Base Stat Section] -----
-bases = load_data(con, "baseswide")
-bases = bases.filter(pl.col("Name").is_in(char_select))
-
-# st.dataframe(bases)
-
-bases_long = bases.melt(id_vars=["Name", "CampaignID"])
-base_fig = px.bar(
-    bases_long, y="variable", x="value", color="Name", barmode="group",
-    labels={"value": "Base Value", "variable": ""}#, title="Base Stat Value Comparison"
-)
-
-# event = st.plotly_chart(fig, key="comp_bar_bases", on_select="rerun")
-
-# event
-
-# ----- [Growths Rate Section] -----
-growths = load_data(con, "growthswide")
-growths = growths.filter(pl.col("Name").is_in(char_select))
-
-# st.dataframe(growths)
-
-growths_long = growths.melt(id_vars=["Name", "Game"])
-growth_fig = px.bar(
-    growths_long, y="variable", x="value", color="Name", barmode="group",
-    labels={"value": "Growth Rate (%)", "variable": ""}#, title="Growth Rate Value Comparison"
-)
-
-
-# Show tabs for both plots and tables
-# base_event = st.plotly_chart(fig, key="comp_bar_bases", on_select="rerun")
-# growth_event = st.plotly_chart(fig, key="comp_bar_growths", on_select="rerun")
-
+# Create tabs for bases and growths and plots/tables for each.
 base_tab, growth_tab = st.tabs(["Bases", "Growths"])
 with base_tab:
+    bases = load_data(con, "baseswide")
+    bases = bases.filter(pl.col("Name").is_in(char_select))
+
+    bases_long = bases.melt(id_vars=["Name", "Campaign"])
+    base_fig = px.bar(
+        bases_long, y="variable", x="value", color="Name", barmode="group",
+        labels={"value": "Base Value", "variable": ""}
+    )
     st.dataframe(bases)
     st.plotly_chart(base_fig, key="comp_bar_bases", on_select="rerun")
+
 with growth_tab:
+    growths = load_data(con, "growthswide")
+    growths = (
+        growths
+        .filter(pl.col("Name").is_in(char_select))
+        .drop("Game")
+    )
+
+    growths_long = growths.melt(id_vars=["Name"])
+    growth_fig = px.bar(
+        growths_long, y="variable", x="value", color="Name", barmode="group",
+        labels={"value": "Growth Rate (%)", "variable": ""}
+    )
+
     st.dataframe(growths)
     st.plotly_chart(growth_fig, key="comp_bar_growths", on_select="rerun")
