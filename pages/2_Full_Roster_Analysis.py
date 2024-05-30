@@ -4,7 +4,20 @@ import polars as pl
 import duckdb
 from duckdb import sql
 
-st.title("Wowzers UwU")
+# Page Config and Writeup
+st.set_page_config(
+    page_title="Stat Distribution Plots",
+    page_icon="🗡"
+)
+st.write(
+    """
+    # Game Wide Stat Plots
+
+    This page allows you to see the distribution for specific stats across the entire cast of character!
+    
+    Curious how a specific character stacks up against everyone else? This page is to help you get a high level overview of exactly that!
+    """
+)
 
 path = "data/duckdb/db.duckdb"
 con = duckdb.connect(path, read_only=True)
@@ -25,9 +38,7 @@ def load_data(con):
         """
     ).pl()
 
-data_load_state = st.text("Loading Data")
 data = load_data(con)
-data_load_state.text("Done! (using st.cache_data)")
 
 stats = (
     data
@@ -36,7 +47,7 @@ stats = (
 )
 stats.sort()
 stat = st.selectbox(
-    label="Stat Filter $\\alpha = 52$", options=stats, index=stats.index("Power")
+    label="Stat Selection", options=stats, index=stats.index("Power")
 )
 data = data.filter(pl.col("Attribute") == stat)
 
@@ -44,13 +55,13 @@ st.subheader("Scatterplot of character stats")
 fig = px.scatter(
     data, x="BaseValue", y="GrowthValue", color="Name", symbol="CampaignID",
     labels={"GrowthValue": f"{stat} Growth (%)", "BaseValue": f"Base {stat} Value"},
-    title=f"Sacred Stones {stat} Bases vs. Growth Scatterplot",
-    hover_data=["Name"]
+    title=f"{stat} Bases vs. Growth"
 )
 fig.update_traces(marker_size=7)
-fig.update_layout(template="plotly_dark")
+fig.update_layout(template="plotly_dark", showlegend=False)
 
-event = st.plotly_chart(fig, key="comp_bar", on_select="rerun")
+event = st.plotly_chart(fig, key="stat_scatter", on_select="rerun")
 st.dataframe(data)
 
-event
+st.write(event)
+

@@ -1,13 +1,53 @@
-# Fire Emblem Dashboard
+# Welcome to my Fire Emblem Application!
 
-Fire Emblem is a series built on numbers. Everything, from combat outcomes to character stats, is all determined by dice rolls of varying complexity.
+This project was designed to be a quick and useful reference for much of the data a player will want access to.
+The Fire Emblem franchise is one built around data, stats and probability. 
+The fandom has created hundreds of tables compiling this information across a multitude of games and that's amazing!
+However, when you're checking these tables mid-game you may end up with dozens of open tabs and no quick way
+to access what you need. 
 
-What's more, many of the numbers a player wants to have so they can make informed decisions are hidden from them! Thankfully, the bulk of this information has been complied by the fine folks at SerenesForest and makes up an extremely large plethora of tables over dozens of games. Check out their site, [here](https://serenesforest.net/).
+My goal here is to provide a tool that allows you to easily navigate most of that information in one place.
 
-This abundance of tables is a blessing and a curse however, as combining information from there requires having numerous tabs open. And, of course, we can't generate insights from that data as it is trapped online.
+- Simply checking character stats?
+- Comparing a couple characters bases and growths to decide who to use? 
+- Seeing where a character falls amongst the entire roster? 
 
-This project, which will extend beyond this repository, is intended to make navigating this information easier. Using **BeautifulSoup** to handle web scraping and **Pandas** for data wrangling, my goal is to pull that information and create a dashboard with a variety of features for each game. 
+I want to provide that and more. 
 
-This dashboard will begin on Tableau and then potentially return here as a plotly dashboard.
+⬅️ Use the sidebar on the left to navigate the various tools I've built out.
 
-Of course, this is an enormous undertaking and I'll be starting small. Working with just 2 games and figuring out the basic organization of data and initial quirks. But my hope is eventually I'll have something genuinelly useful that allows for convenient access to the information any fire emblem player may need both inside combat and out! 
+## The Data
+
+All of the data I'm using has been collected from the wonderful [Serenes Forest](https://serenesforest.net/).
+This application wouldn't be possible without the work of the community. Without data I can't do anything.
+
+Of course this application is very much under construction but it's one I intend to improve over time! 
+
+## Features
+
+| Feature | Status |
+|---|---|
+| Character Comparison | ✅|
+| Full Roster Stat Analysis | ✅|
+| General Stat Tables | ❎|
+| True Hit Calculator | ❎|
+| Combat Outcome Calculator | ❎|
+
+This is a basic overview of what I want to include, I have so many ideas beyond this but gotta start somewhere!
+
+## Games
+
+Note that there's a lot of tables for these games so I won't have all the games right off the bat.
+I have to scrape the data, clean it and do even more work to ensure it functions properly with these features.
+Whats more is that as the games get more complex the data changes and the math does too! So give me time to 
+slowly expand the scope of this project.
+
+Currently I only plan to get all the GBA games working. Once I develop those features in full I'll start
+to look at which games would be easiest for me to include and hopefully someday I'll be able to have all of the games!
+I'm starting with Fire Emblem 8 as it has the simplest data for me to work with.
+
+|Game|Status|
+|---|---|
+|FE6 - Binding Blade|❎|
+|FE7 - Blazing Sword|❎|
+|FE8 - Sacred Stones|✅|
