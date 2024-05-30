@@ -12,7 +12,7 @@ st.write(
     """
     # Character Stat Comparisons
     
-    On this page you can select up to 3 characters to compare bases and growths!
+    On this page you can select up to 3 characters to compare stats directly!
     """
 )
 
@@ -45,35 +45,42 @@ char_select = st.multiselect(
 )
 
 # ----- [Base Stat Section] -----
-st.write("# Bases")
 bases = load_data(con, "baseswide")
 bases = bases.filter(pl.col("Name").is_in(char_select))
 
-st.dataframe(bases)
+# st.dataframe(bases)
 
 bases_long = bases.melt(id_vars=["Name", "CampaignID"])
-fig = px.bar(
+base_fig = px.bar(
     bases_long, y="variable", x="value", color="Name", barmode="group",
-    labels={"value": "Base Value", "variable": ""}, title="Base Stat Value Comparison"
+    labels={"value": "Base Value", "variable": ""}#, title="Base Stat Value Comparison"
 )
-fig.update_layout(template="plotly_dark")
-event = st.plotly_chart(fig, key="comp_bar_bases", on_select="rerun")
 
-event
+# event = st.plotly_chart(fig, key="comp_bar_bases", on_select="rerun")
+
+# event
 
 # ----- [Growths Rate Section] -----
-st.write("# Growths")
 growths = load_data(con, "growthswide")
 growths = growths.filter(pl.col("Name").is_in(char_select))
 
-st.dataframe(growths)
+# st.dataframe(growths)
 
 growths_long = growths.melt(id_vars=["Name", "Game"])
-fig = px.bar(
+growth_fig = px.bar(
     growths_long, y="variable", x="value", color="Name", barmode="group",
-    labels={"value": "Growth Rate (%)", "variable": ""}, title="Growth Rate Value Comparison"
+    labels={"value": "Growth Rate (%)", "variable": ""}#, title="Growth Rate Value Comparison"
 )
-fig.update_layout(template="plotly_dark")
-event = st.plotly_chart(fig, key="comp_bar_growths", on_select="rerun")
 
-event
+
+# Show tabs for both plots and tables
+# base_event = st.plotly_chart(fig, key="comp_bar_bases", on_select="rerun")
+# growth_event = st.plotly_chart(fig, key="comp_bar_growths", on_select="rerun")
+
+base_tab, growth_tab = st.tabs(["Bases", "Growths"])
+with base_tab:
+    st.dataframe(bases)
+    st.plotly_chart(base_fig, key="comp_bar_bases", on_select="rerun")
+with growth_tab:
+    st.dataframe(growths)
+    st.plotly_chart(growth_fig, key="comp_bar_growths", on_select="rerun")

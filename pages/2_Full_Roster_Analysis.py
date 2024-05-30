@@ -58,7 +58,7 @@ fig = px.scatter(
     title=f"{stat} Bases vs. Growth"
 )
 fig.update_traces(marker_size=7)
-fig.update_layout(template="plotly_dark", showlegend=False)
+fig.update_layout(showlegend=False)
 
 event = st.plotly_chart(fig, key="stat_scatter", on_select="rerun")
 st.dataframe(data)
