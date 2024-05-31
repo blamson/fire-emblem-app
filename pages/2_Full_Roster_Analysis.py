@@ -1,8 +1,8 @@
 import streamlit as st
 import plotly.express as px
+import plotly.graph_objects as go
 import polars as pl
 import duckdb
-from duckdb import sql
 
 # Page Config and Writeup
 st.set_page_config(
@@ -22,6 +22,7 @@ st.write(
 path = "data/duckdb/db.duckdb"
 con = duckdb.connect(path, read_only=True)
 
+
 def load_data(con):
 
     return con.sql(
@@ -31,14 +32,27 @@ def load_data(con):
             , s.attribute
             , s.basevalue
             , s.growthvalue
-            , b.campaignid
+            , c.campaign
         FROM statscombined s
         LEFT JOIN baseswide b
         ON s.name = b.name
+        LEFT JOIN campaigns c
+        on b.campaignid = c.id
         """
     ).pl()
 
 data = load_data(con)
+
+characters = con.sql("select * from characters").pl()
+names = (
+    characters
+    .select(pl.col("Name").unique())
+    .to_series()
+    .to_list()
+)
+names.sort()
+
+st.subheader("Scatterplot of Character Stats")
 
 stats = (
     data
@@ -47,21 +61,45 @@ stats = (
 )
 stats.sort()
 stat = st.selectbox(
-    label="Stat Selection", options=stats, index=stats.index("Power")
+    label="Select a stat to plot",
+    options=stats,
+    index=stats.index("Power"),
+    placeholder="Select a Stat to Plot"
 )
-data = data.filter(pl.col("Attribute") == stat)
+data = (data.filter(pl.col("Attribute") == stat))
 
-st.subheader("Scatterplot of character stats")
+char_select = st.selectbox(
+    label="Select character to highlight on the plot", options=names,
+    index=names.index("Eirika"),
+    placeholder="Select a Character to Highlight"
+)
+
 fig = px.scatter(
-    data, x="BaseValue", y="GrowthValue", color="Name", symbol="CampaignID",
+    data, x="BaseValue", y="GrowthValue", symbol="Campaign", color="Name",
     labels={"GrowthValue": f"{stat} Growth (%)", "BaseValue": f"Base {stat} Value"},
-    title=f"{stat} Bases vs. Growth"
+    title=f"{stat} Bases vs. Growth",
+    color_discrete_sequence=px.colors.qualitative.Plotly,
+    custom_data=["Name", "Campaign"]
 )
-fig.update_traces(marker_size=7)
-fig.update_layout(showlegend=False)
+# st.write("plotly express hovertemplate:", fig.data[0].hovertemplate)
+fig.update_traces(
+    marker_size=10,
+    hovertemplate='''
+        <br>Base: %{x} 
+        <br>Growth: %{y}
+    '''
+)
+fig.update_layout(showlegend=False, hovermode='x unified')
 
-event = st.plotly_chart(fig, key="stat_scatter", on_select="rerun")
-st.dataframe(data)
+# Add x to specified character
+char_row = data.filter(pl.col("Name") == char_select)
 
-st.write(event)
+fig.add_trace(go.Scatter(
+    x=char_row["BaseValue"], y=char_row["GrowthValue"],
+    mode='markers',
+    marker=dict(size=17, color='red', symbol='x'),
+    hoverinfo='none'
+))
 
+st.plotly_chart(fig, key="stat_scatter", on_select="rerun")
+st.dataframe(char_row, use_container_width=True)

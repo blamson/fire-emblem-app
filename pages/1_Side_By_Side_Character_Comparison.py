@@ -51,7 +51,8 @@ characters = load_data(con, "characters")
 names = (
     characters
     .select(pl.col("Name").unique())
-    .to_series().to_list()
+    .to_series()
+    .to_list()
 )
 names.sort()
 char_select = st.multiselect(
@@ -71,7 +72,7 @@ with base_tab:
         bases_long, y="variable", x="value", color="Name", barmode="group",
         labels={"value": "Base Value", "variable": ""}
     )
-    st.dataframe(bases)
+    st.dataframe(bases, use_container_width=True)
     st.plotly_chart(base_fig, key="comp_bar_bases", on_select="rerun")
 
 with growth_tab:
@@ -88,5 +89,5 @@ with growth_tab:
         labels={"value": "Growth Rate (%)", "variable": ""}
     )
 
-    st.dataframe(growths)
+    st.dataframe(growths, use_container_width=True)
     st.plotly_chart(growth_fig, key="comp_bar_growths", on_select="rerun")
