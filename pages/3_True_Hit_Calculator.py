@@ -3,6 +3,7 @@ from scipy.stats import randint
 from statistics import mean
 from math import sqrt
 from src.true_hit import true_hit_simulation, true_hit_solution
+import polars as pl
 
 
 # Page Config and Writeup
@@ -59,6 +60,10 @@ st.markdown(
     My calculator is there to save you time on figuring out what the real values are.
     """
 )
+
+st.markdown("# Hit Rate Table")
+table = pl.read_csv("data/hit_rate_table.csv")
+st.dataframe(table)
 
 st.markdown(
     """

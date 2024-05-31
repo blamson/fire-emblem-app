@@ -1,5 +1,8 @@
 import scipy
 import statistics
+import numpy as np
+import polars as pl
+
 
 def true_hit_simulation(hit_rate, lower, upper):
     """
@@ -40,7 +43,21 @@ def true_hit_solution(hit_rate):
     elif hit_rate > 99:
         return 1
 
+def create_true_hit_table():
+    data = {
+        "displayed": [],
+        "true": []
+    }
+    for i in range(0, 100 + 1, 1):
+        data["displayed"].append(i)
+        true = true_hit_solution(i) * 100
+        data["true"].append(round(true, 2))
 
+    print(data)
+    df = pl.DataFrame(data)
+    df.write_csv("../data/hit_rate_table.csv")
+
+# create_true_hit_table()
 # Tinkering with everything
 # displayed_hit = 50
 # hit = true_hit_simulation(displayed_hit, 0, 99)
