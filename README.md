@@ -1,5 +1,7 @@
 # Welcome to my Fire Emblem Application!
 
+[Link to the site](https://fire-emblem-dashboard.streamlit.app/)
+
 This project was designed to be a quick and useful reference for much of the data a player will want access to.
 The Fire Emblem franchise is one built around data, stats and probability. 
 The fandom has created hundreds of tables compiling this information across a multitude of games and that's amazing!
@@ -13,8 +15,6 @@ My goal here is to provide a tool that allows you to easily navigate most of tha
 - Seeing where a character falls amongst the entire roster? 
 
 I want to provide that and more. 
-
-⬅️ Use the sidebar on the left to navigate the various tools I've built out.
 
 ## The Data
 

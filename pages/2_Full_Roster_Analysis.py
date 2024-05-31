@@ -54,6 +54,7 @@ names.sort()
 
 st.subheader("Scatterplot of Character Stats")
 
+# Statistic Selection and Filtering
 stats = (
     data
     .select(pl.col("Attribute").unique())
@@ -68,12 +69,14 @@ stat = st.selectbox(
 )
 data = (data.filter(pl.col("Attribute") == stat))
 
+# Character selection for later filtering and highlighting
 char_select = st.selectbox(
     label="Select character to highlight on the plot", options=names,
     index=names.index("Eirika"),
     placeholder="Select a Character to Highlight"
 )
 
+# Create overall scatterplot
 fig = px.scatter(
     data, x="BaseValue", y="GrowthValue", symbol="Campaign", color="Name",
     labels={"GrowthValue": f"{stat} Growth (%)", "BaseValue": f"Base {stat} Value"},
@@ -81,6 +84,8 @@ fig = px.scatter(
     color_discrete_sequence=px.colors.qualitative.Plotly,
     custom_data=["Name", "Campaign"]
 )
+
+# This chunk is for updating how the hoverbox looks.
 # st.write("plotly express hovertemplate:", fig.data[0].hovertemplate)
 fig.update_traces(
     marker_size=10,
