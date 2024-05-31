@@ -42,9 +42,9 @@ def true_hit_solution(hit_rate):
 
 
 # Tinkering with everything
-displayed_hit = 50
-hit = true_hit_simulation(displayed_hit, 0, 99)
-print(hit)
-
-hit = true_hit_solution(displayed_hit)
-print(hit)
+# displayed_hit = 50
+# hit = true_hit_simulation(displayed_hit, 0, 99)
+# print(hit)
+#
+# hit = true_hit_solution(displayed_hit)
+# print(hit)
