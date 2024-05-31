@@ -4,7 +4,7 @@ st.set_page_config(
     page_title="Fire Emblem Dashboard",
     page_icon="🗡️"
 )
-
+st.image("images/Fire_Emblem_logo.webp")
 st.sidebar.success("Select a Page above!")
 # with open("README.md") as f:
 #     main_blurb = f.read()
@@ -13,8 +13,6 @@ st.sidebar.success("Select a Page above!")
 
 st.markdown(
     """
-    # Welcome to my Fire Emblem Application!
-
     This project was designed to be a quick and useful reference for much of the data a player will want access to.
     The Fire Emblem franchise is one built around data, stats and probability. 
     The fandom has created hundreds of tables compiling this information across a multitude of games and that's amazing!
@@ -44,9 +42,9 @@ st.markdown(
     |---|---|
     | Character Comparison | ✅|
     | Full Roster Stat Analysis | ✅|
-    | General Stat Tables | ❎|
-    | True Hit Calculator | ❎|
-    | Combat Outcome Calculator | ❎|
+    | General Stat Tables | 🚧️|
+    | True Hit Calculator | 🚧️|
+    | Combat Outcome Calculator | 🚧️|
     
     This is a basic overview of what I want to include, I have so many ideas beyond this but gotta start somewhere!
     
@@ -63,8 +61,8 @@ st.markdown(
     
     |Game|Status|
     |---|---|
-    |FE6 - Binding Blade|❎|
-    |FE7 - Blazing Sword|❎|
+    |FE6 - Binding Blade|🚧️|
+    |FE7 - Blazing Sword|🚧️|
     |FE8 - Sacred Stones|✅|
     """
 )
