@@ -2,17 +2,17 @@ import scipy
 import statistics
 import numpy as np
 import polars as pl
+from scipy.stats import triang
 
 
-def true_hit_simulation(hit_rate, lower, upper):
+def true_hit_simulation(hit_rate, lower=0, upper=99, ntrials=10000):
     """
     Brute force simulation. Slow but fantastic for sanity checking new mathematical solutions.
     It's never exactly right, but its accurate enough.
     """
 
     successes = []
-    trials = 10000
-    for i in range(trials):
+    for i in range(ntrials):
         uni_rvs = scipy.stats.randint(lower, upper + 1).rvs(2)
         sample_mean = statistics.mean(uni_rvs)
 
@@ -21,7 +21,7 @@ def true_hit_simulation(hit_rate, lower, upper):
         else:
             successes.append(0)
 
-    return sum(successes) / trials
+    return sum(successes) / ntrials
 
 
 def true_hit_solution(hit_rate):
@@ -57,11 +57,29 @@ def create_true_hit_table():
     df = pl.DataFrame(data)
     df.write_csv("../data/hit_rate_table.csv")
 
-# create_true_hit_table()
-# Tinkering with everything
-# displayed_hit = 50
-# hit = true_hit_simulation(displayed_hit, 0, 99)
-# print(hit)
-#
-# hit = true_hit_solution(displayed_hit)
-# print(hit)
+
+def create_simulated_hit_rate_table():
+    aggregated_hit_rates = {
+        "DisplayedHit": [],
+        "TrueHit": []
+    }
+    for displayed_hit in range(0, 100+1, 1):
+        print(f"Simulating Displayed Hit = {displayed_hit}")
+        simulated_true_hit = round(true_hit_simulation(hit_rate=displayed_hit, ntrials=100000) * 100, 2)
+        aggregated_hit_rates["DisplayedHit"].append(displayed_hit)
+        aggregated_hit_rates["TrueHit"].append(simulated_true_hit)
+
+    df = pl.DataFrame(aggregated_hit_rates)
+    df.write_csv("../data/simulated_hit_rate_table.csv")
+
+
+def true_hit_with_scipy(x):
+    if x == 100:
+        return 1
+    else:
+        lower = 0
+        upper = 99
+        mode = (upper - lower) / 2
+        c = (mode - lower) / (upper - lower)
+        rv = triang(c, loc=lower, scale=upper - lower)
+        return rv.cdf(x)

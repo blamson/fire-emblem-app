@@ -2,7 +2,7 @@ import streamlit as st
 from scipy.stats import randint
 from statistics import mean
 from math import sqrt
-from src.true_hit import true_hit_simulation, true_hit_solution
+from src.true_hit import true_hit_simulation, true_hit_solution, true_hit_with_scipy
 import polars as pl
 
 
@@ -18,7 +18,7 @@ st.warning(
     '''
     This feature is a proof of concept. The math isn't quite sorted out yet. 
     
-    Hit Rates < 50 are solid, but Hit Rates >= 50 are off.
+    Hit rates will be very slightly off real probabilities.
     ''',
     icon="⚠️"
 )
@@ -34,7 +34,8 @@ displayed_hit = st.number_input(
 # Second condition required because displayed_hit evals to False when user inputs 0.
 if displayed_hit or (displayed_hit == 0):
     # true_hit = round(true_hit_simulation(displayed_hit, 0, 99) * 100, 2)
-    true_hit = round(true_hit_solution(displayed_hit) * 100, 2)
+    # true_hit = round(true_hit_solution(displayed_hit) * 100, 2)
+    true_hit = round(true_hit_with_scipy(displayed_hit) * 100, 2)
 
     st.markdown(
         f"""
@@ -61,8 +62,15 @@ st.markdown(
     """
 )
 
-st.markdown("# Hit Rate Table")
-table = pl.read_csv("data/hit_rate_table.csv")
+st.markdown('# Hit Rate Table')
+st.warning(
+    '''
+    Values here are currently different from values provided by the conversion tool.
+    These are more accurate and were collected using $n=100000$ trials per hit rate.
+    ''',
+    icon="🚧️"
+)
+table = pl.read_csv("data/simulated_hit_rate_table.csv")
 st.dataframe(table)
 
 st.markdown(
