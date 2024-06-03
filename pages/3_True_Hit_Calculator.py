@@ -26,9 +26,9 @@ displayed_hit = st.number_input(
     placeholder="Enter a value between 0 and 100."
 )
 
+
 # Second condition required because displayed_hit evals to False when user inputs 0.
 if displayed_hit or (displayed_hit == 0):
-    # true_hit = round(true_hit_with_scipy(displayed_hit) * 100, 2)
     true_hit = displayed_to_true_hit(displayed_hit)
     st.markdown(
         f"""
@@ -68,18 +68,46 @@ st.markdown(
     """
 )
 
+# st.markdown(
+#     """
+#     ## Mathematical Explanation
+#
+#     The true hit resources I've found online never really dive into the math because it can get a little complicated.
+#     However,
+#     In this section I'll solve this little probability problem and show you how to compute this yourself!
+#
+#     ###
+#     """
+# )
+
 st.markdown(
     """
     ## Mathematical Explanation
+
+    The true hit resources I've found online never really dive into the math because it can get a little complicated.
+    However, I think it's actually really fun to understand what's going on under the hood and I want to provide that to anyone interested!
     
-    The true hit resources I've found online never really dive into the math because it gets very ugly.
-    In this section I'll solve this little probability problem and show you how to compute this yourself!
+    In this section I'll solve this little probability problem and help you gain some insight into the world of probability!
+    
+    This is gonna be a long one so I apologize in advance!
+    
+    ### Disclaimer
+    
+    This is a mathematical explanation but I want to keep it easy to understand for everyone. 
+    There may be some jargon here or there but I will be sure to explain all of it and I expect no mathematical background coming into this.
     """
 )
 
 st.warning(
     '''
-    Mathematical explanation still in progress.
+    Mathematical explanation still in progress. Might be a little dense currently.
     ''',
     icon="🚧️"
 )
+
+math = st.toggle("View the Mathematical Explanation")
+if math:
+    with open("markdown_files/true_hit_explanation.md") as f:
+        explanation = f.read()
+
+    st.markdown(explanation)
