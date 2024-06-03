@@ -2,7 +2,7 @@ import streamlit as st
 from scipy.stats import randint
 from statistics import mean
 from math import sqrt
-from src.true_hit import true_hit_simulation, true_hit_solution, true_hit_with_scipy
+from src.true_hit import displayed_to_true_hit
 import polars as pl
 
 
@@ -12,15 +12,10 @@ st.set_page_config(
     page_icon="🗡"
 )
 
-st.markdown("# True Hit Calculator")
-
-st.warning(
-    '''
-    This feature is a proof of concept. The math isn't quite sorted out yet. 
-    
-    Hit rates will be very slightly off real probabilities.
-    ''',
-    icon="⚠️"
+st.markdown(
+    """
+    # True Hit Calculator
+    """
 )
 
 displayed_hit = st.number_input(
@@ -33,10 +28,8 @@ displayed_hit = st.number_input(
 
 # Second condition required because displayed_hit evals to False when user inputs 0.
 if displayed_hit or (displayed_hit == 0):
-    # true_hit = round(true_hit_simulation(displayed_hit, 0, 99) * 100, 2)
-    # true_hit = round(true_hit_solution(displayed_hit) * 100, 2)
-    true_hit = round(true_hit_with_scipy(displayed_hit) * 100, 2)
-
+    # true_hit = round(true_hit_with_scipy(displayed_hit) * 100, 2)
+    true_hit = displayed_to_true_hit(displayed_hit)
     st.markdown(
         f"""
         |Displayed Hit|True Hit|
@@ -44,6 +37,11 @@ if displayed_hit or (displayed_hit == 0):
         |{displayed_hit}|{true_hit}|
         """
     )
+
+st.markdown('## Hit Rate Table')
+table = pl.read_csv("data/hit_rate_table.csv")
+table = table.rename({"displayed": "Displayed Hit Rate", "true": "True Hit Rate"})
+st.dataframe(table, use_container_width=True)
 
 st.markdown(
     """
@@ -61,17 +59,6 @@ st.markdown(
     My calculator is there to save you time on figuring out what the real values are.
     """
 )
-
-st.markdown('# Hit Rate Table')
-st.warning(
-    '''
-    Values here are currently different from values provided by the conversion tool.
-    These are more accurate and were collected using $n=100000$ trials per hit rate.
-    ''',
-    icon="🚧️"
-)
-table = pl.read_csv("data/simulated_hit_rate_table.csv")
-st.dataframe(table)
 
 st.markdown(
     """

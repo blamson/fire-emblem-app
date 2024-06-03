@@ -24,25 +24,6 @@ def true_hit_simulation(hit_rate, lower=0, upper=99, ntrials=10000):
     return sum(successes) / ntrials
 
 
-def true_hit_solution(hit_rate):
-    """
-    Magic number hell I hate this. :(
-    Will be a lot cleaner once I work out the math myself.
-    """
-
-    denominator = 9801
-    if 0 <= hit_rate <= 49.5:
-        return (
-            (2 * hit_rate**2) / denominator
-        )
-
-    elif 49.5 < hit_rate <= 99:
-        numerator = (396*hit_rate) - (2*(hit_rate**2)) - 14601.5
-        return 0.5 + (numerator / denominator)
-
-    elif hit_rate > 99:
-        return 1
-
 def create_true_hit_table():
     data = {
         "displayed": [],
@@ -50,8 +31,8 @@ def create_true_hit_table():
     }
     for i in range(0, 100 + 1, 1):
         data["displayed"].append(i)
-        true = true_hit_solution(i) * 100
-        data["true"].append(round(true, 2))
+        true = displayed_to_true_hit(i)
+        data["true"].append(true)
 
     print(data)
     df = pl.DataFrame(data)
@@ -73,13 +54,59 @@ def create_simulated_hit_rate_table():
     df.write_csv("../data/simulated_hit_rate_table.csv")
 
 
-def true_hit_with_scipy(x):
-    if x == 100:
-        return 1
-    else:
-        lower = 0
-        upper = 99
-        mode = (upper - lower) / 2
-        c = (mode - lower) / (upper - lower)
-        rv = triang(c, loc=lower, scale=upper - lower)
-        return rv.cdf(x)
+# All functions below this comment are for use in tandem with one another
+# These functions are for the correct discrete solution
+def sum_to_n(n, x: dict, z: dict):
+    combinations = []
+    if not (z["min"] <= n <= z["max"]):
+        return
+    for a in range(x["min"], x["max"]+1):
+        b = n - a
+        if x["min"] <= b <= x["max"]:
+            combinations.append((a, b))
+
+    return combinations
+
+
+def populate_pmf_and_outcomes(x: dict, z: dict):
+
+    pmf = {}
+    all_outcomes = []
+    n = 0
+    while n <= (z["max"]):
+
+        outcomes = sum_to_n(n, x, z)
+        if outcomes:
+            pmf[str(n)] = outcomes
+            all_outcomes += outcomes
+        n += 1
+
+    return pmf, all_outcomes
+
+
+def calculate_cdf(pmf: dict, all_outcomes: list, c: int = 50):
+    cdf = 0
+    for i in range((2 * c)):
+        outcomes = pmf[str(i)]
+        prob = len(outcomes) / len(all_outcomes)
+        cdf += prob
+
+    return cdf
+
+
+def displayed_to_true_hit(displayed_hit: int):
+    if displayed_hit == 100:
+        return 100
+
+    x = {"min": 0, "max": 99}
+    z = {
+        "min": 2 * x["min"],
+        "max": 2 * x["max"]
+    }
+
+    pmf, all_outcomes = populate_pmf_and_outcomes(x, z)
+
+    cdf = calculate_cdf(pmf, all_outcomes, c=displayed_hit)
+    cdf = round(cdf * 100, 2)
+
+    return cdf
