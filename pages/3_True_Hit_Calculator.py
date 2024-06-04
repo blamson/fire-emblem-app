@@ -1,10 +1,9 @@
 import streamlit as st
-from scipy.stats import randint
-from statistics import mean
-from math import sqrt
-from src.true_hit import displayed_to_true_hit
+from src.true_hit import displayed_to_true_hit, create_plots
 import polars as pl
-
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
 # Page Config and Writeup
 st.set_page_config(
@@ -41,6 +40,8 @@ if displayed_hit or (displayed_hit == 0):
 st.markdown('## Hit Rate Table')
 table = pl.read_csv("data/hit_rate_table.csv")
 table = table.rename({"displayed": "Displayed Hit Rate", "true": "True Hit Rate"})
+pmf_table = pl.read_csv("data/hit_rate_pmf_table.csv")
+pmf_table = pmf_table.with_columns(pl.lit(1).alias("1rn"))
 st.dataframe(table, use_container_width=True)
 
 st.markdown(
@@ -67,18 +68,6 @@ st.markdown(
     [Link](https://serenesforest.net/general/true-hit/)
     """
 )
-
-# st.markdown(
-#     """
-#     ## Mathematical Explanation
-#
-#     The true hit resources I've found online never really dive into the math because it can get a little complicated.
-#     However,
-#     In this section I'll solve this little probability problem and show you how to compute this yourself!
-#
-#     ###
-#     """
-# )
 
 st.markdown(
     """
@@ -110,4 +99,29 @@ if math:
     with open("markdown_files/true_hit_explanation.md") as f:
         explanation = f.read()
 
+    with open("markdown_files/true_hit_explanation_pt2.md") as f:
+        explanation_pt2 = f.read()
+
     st.markdown(explanation)
+
+    # PMF Plots
+    bar_tab, line_tab = st.tabs(["Bar Plot", "Line Plot"])
+    with bar_tab:
+        fig = create_plots(pmf_table, cdf=False, plot_type="bar")
+        st.write(fig)
+    with line_tab:
+        fig = create_plots(pmf_table, cdf=False, plot_type="line")
+        st.write(fig)
+
+    st.markdown(explanation_pt2)
+
+    # CDF Plots
+    bar_tab, line_tab = st.tabs(["Bar Plot", "Line Plot"])
+    with bar_tab:
+        fig = create_plots(table, cdf=True, plot_type="bar")
+        st.write(fig)
+
+    with line_tab:
+        fig = create_plots(table, cdf=True, plot_type="line")
+        st.write(fig)
+

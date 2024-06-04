@@ -2,7 +2,9 @@ import scipy
 import statistics
 import numpy as np
 import polars as pl
+import plotly.graph_objects as go
 from scipy.stats import triang
+import streamlit as st
 
 
 def true_hit_simulation(hit_rate, lower=0, upper=99, ntrials=10000):
@@ -24,7 +26,7 @@ def true_hit_simulation(hit_rate, lower=0, upper=99, ntrials=10000):
     return sum(successes) / ntrials
 
 
-def create_true_hit_table():
+def create_cdf_hit_table():
     data = {
         "displayed": [],
         "true": []
@@ -37,6 +39,27 @@ def create_true_hit_table():
     print(data)
     df = pl.DataFrame(data)
     df.write_csv("../data/hit_rate_table.csv")
+
+
+def create_pmf_hit_table():
+    data = {
+        "hit_rate": [],
+        "2rn": []
+    }
+
+    for i in range(0, 100 + 1, 1):
+        data["hit_rate"].append(i)
+        cdf_i = displayed_to_true_hit(i)
+        if i == 0:
+            data["2rn"].append(cdf_i)
+            continue
+
+        cdf_prev_i = displayed_to_true_hit(i-1)
+        prob = round(cdf_i - cdf_prev_i, 2)
+        data["2rn"].append(prob)
+
+    df = pl.DataFrame(data)
+    df.write_csv("../data/hit_rate_pmf_table.csv")
 
 
 def create_simulated_hit_rate_table():
@@ -110,3 +133,52 @@ def displayed_to_true_hit(displayed_hit: int):
     cdf = round(cdf * 100, 2)
 
     return cdf
+
+
+def create_plots(data: pl.DataFrame, plot_type: str = "bar", cdf: bool = True):
+
+    fig = go.Figure()
+
+    if cdf:
+        parameters = {
+            "title": "Displayed Hit Rate Vs. Actual Probability",
+            "xaxis_title": "Displayed Hit Rate (%)",
+            "yaxis_title": "Actual Hit Rate (%)",
+            "xaxis_column": "Displayed Hit Rate",
+            "yaxis_column_2rn": "True Hit Rate",
+            "yaxis_column_1rn": "Displayed Hit Rate"
+        }
+
+    else:
+        parameters = {
+            "title": "1RN vs. 2RN Probability Mass Functions",
+            "xaxis_title": "Hit Rate (%)",
+            "yaxis_title": "Percent Chance (%)",
+            "xaxis_column": "hit_rate",
+            "yaxis_column_2rn": "2rn",
+            "yaxis_column_1rn": "1rn"
+        }
+
+    if plot_type == "line":
+        fig.add_trace(go.Scatter(
+            x=data[parameters["xaxis_column"]], y=data[parameters["yaxis_column_2rn"]], mode="lines", name="2RN"
+        ))
+        fig.add_trace(go.Scatter(
+            x=data[parameters["xaxis_column"]], y=data[parameters["yaxis_column_1rn"]], mode="lines", name="1RN"
+        ))
+    else:
+        fig.add_trace(go.Bar(
+            x=data[parameters["xaxis_column"]], y=data[parameters["yaxis_column_2rn"]], name="2RN"
+        ))
+        fig.add_trace(go.Bar(
+            x=data[parameters["xaxis_column"]], y=data[parameters["yaxis_column_1rn"]], name="1RN"
+        ))
+
+    fig.update_layout(
+        hovermode="x unified",
+        title=parameters["title"],
+        xaxis_title=parameters["xaxis_title"],
+        yaxis_title=parameters["yaxis_title"]
+    )
+
+    return fig
