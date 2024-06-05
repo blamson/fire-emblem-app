@@ -3,10 +3,10 @@
 Before we dive into the complicated stuff like 2RN let's start with the basics and discuss a 1RN system.
 1RN, or, 1 Random Number, is basically just a dice roll. It is what we would refer to as a **Uniform Random Variable** in the probability world.
 
-Each side of the dice is equally likely to happen. This is what we see in the first 5 Fire Emblem games. 
+Each side of the die is equally likely to happen. This is what we see in the first 5 Fire Emblem games. 
 It's just a really big 100 sided dice in those games!
 
-Let's look at a six sided die as an example. There's only so six sides we can land on. Or, in other words, there are only six possible *outcomes*.
+Let's look at a six sided die as an example. There's only six sides we can land on. Or, in other words, there are only six possible *outcomes*.
 Each side of this die has the same chance of being rolled as well, assuming it's not a weighted die! So each side has a probability of 1/6.
 
 I'm gonna use some mathematical notation but don't let it freak you out. 

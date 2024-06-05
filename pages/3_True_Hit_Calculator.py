@@ -66,6 +66,23 @@ st.markdown(
     Hit rates well above 50 hit more than they should and hit rates below 50 a whole lot less.
 
     My calculator is there to save you time on figuring out what the real values are.
+    
+    ## Why do the games do this?
+    
+    People are, almost by nature, extremely bad at gauging probability. This is compounded with a game like
+    Fire Emblem where that thing we're bad at is directly tied into formulating strategies and assessing risk.
+    Going for a $95\%$ chance to hit feels like an extremely safe move right? However, in the old FE games
+    there's a $1/20$ chance you miss. That's honestly very likely over a gaming session and, for most players,
+    this feels bad. Same with getting hit by a $20\%$. $1/5$ of those will land but strategically it *feels*
+    like it should be a reliable play. 
+    
+    The 2RN system is there to make probabilities feel like they *should feel*. An $85\%$ feels like it should be pretty
+    reliable and so it's been cranked up to around $95\%$. It's also in the players favor! Most of the time
+    the player will be working with hit rates above $50\%$ so the player benefits from the boost. Meanwhile the enemies will
+    often be below $50\%$ and taking a penalty. 
+    
+    Whether you like this system or not is up to preference. Personally I enjoy the punishing nature of the brutally honest
+    1RN system, but there's a reason 2RN exists. It's honestly very clever!
     """
 )
 
@@ -84,18 +101,19 @@ st.markdown(
     The true hit resources I've found online never really dive into the math because it can get a little complicated.
     However, I think it's actually really fun to understand what's going on under the hood and I want to provide that to anyone interested!
     
-    In this section I'll solve this little probability problem and help you gain some insight into the world of probability!
-    
+    In the section below we properly dive into the topic and I hope it helps provide some insight into these games.
     This is gonna be a long one so I apologize in advance!
     
     ### Disclaimer
     
     This is a mathematical explanation but I want to keep it easy to understand for everyone. 
     There may be some jargon here or there but I will be sure to explain all of it and I expect no mathematical background coming into this.
+    There's a lot of text though so be prepared to read.
     """
 )
 
 math = st.toggle("View the Mathematical Explanation")
+
 if math:
     with open("markdown_files/true_hit_explanation.md") as f:
         explanation = f.read()

@@ -45,7 +45,7 @@ That's 3 possible outcomes which gives us $3/10000$ or $0.03\%$. Same as the tab
 
 ### Conclusion: Let's add some perspective and end this
 
-Let's make sure we haven't gotten lost in the math and remember what super low hit rate actually means.
+Let's make sure we haven't gotten lost in the math and remember what a super low hit rate actually means.
 
 If we were using just a single dice ranging from 0 to 99 (like FE 1-5) and checking for $P(X<1)$ we only have $X=0$ as a possible outcome, but that's still $1/100=1\%$. 
 Way more likely (and has probably gotten you killed if you've played Thracia 776). This is why so many of us also have stories of getting killed by $1\%$ critical hits.
