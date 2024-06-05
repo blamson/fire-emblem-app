@@ -45,7 +45,7 @@ st.markdown(
     | Character Comparison | ✅|
     | Full Roster Stat Analysis | ✅|
     | General Stat Tables | 🚧️|
-    | True Hit Calculator | 🚧️|
+    | True Hit Calculator | ✅️|
     | Combat Outcome Calculator | 🚧️|
     
     This is a basic overview of what I want to include, I have so many ideas beyond this but gotta start somewhere!
