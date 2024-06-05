@@ -100,20 +100,17 @@ to be 3. Same with 0. Getting a sum of 3 though is really quite common as there 
 The table above is why true hit differs from displayed hit.
 
 Remember, 2RN takes the average of the two dice. Which is mostly the same as this example. So most of the outcomes will end up
-closer to the middle. This is why when displayed hit is close to 50 that it's mostly accurate.
+closer to the middle. 
 
 The two dice individually may be **uniform random variables** but not that is not what happens when you combine them!
 
 The math is a little more involved since we have two 100 sided dice, but this is the crux of it. 
 To really put it in perspective, notice how landing both zeros has a $1/16$ chance here? Well,
-with two 100 sided dice we have a total of $100 \cdot 100 = 10000$ possible outcomes. So it becomes a $1/10000$ chance.
+with two 100 sided dice we have a total of $100 \cdot 100 = 10000$ possible outcomes. 
+So it becomes a $1/10000$ chance or a percent chance of $0.01\%$. That's a hundredth of a percent!
 
 Below is a plot to help visualize how extreme this gets. Notice how in the 1RN system it stays at the same percent chance
 regardless of the hit rate whereas in the 2RN it looks more triangular? That's because of the outcomes getting smushed
-into the center! Try looking at the line plot if the bar plot isn't clear enough for you.
+into the center! You'll also notice just how many more bars there are on the joint version. 
+That's just like we saw with the table being so much bigger in our example!
 
-#### Mini Disclaimer
-
-For any statisticians and probabilists reading this, yes I know the line plot should only be used for continuous
-random variables. However, I think it's a very clear way to showcase what's going on here. So I included 
-both plots to satisfy my inner statisticians nagging. 

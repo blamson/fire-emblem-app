@@ -1,5 +1,5 @@
 import streamlit as st
-from src.true_hit import displayed_to_true_hit, create_plots
+from src.true_hit import displayed_to_true_hit, create_cdf_plots, create_pmf_plots
 import polars as pl
 import plotly.express as px
 import plotly.graph_objects as go
@@ -38,24 +38,32 @@ if displayed_hit or (displayed_hit == 0):
     )
 
 st.markdown('## Hit Rate Table')
-table = pl.read_csv("data/hit_rate_table.csv")
+table = pl.read_csv("data/true_hit_data/cumulative_hit_rate_table.csv")
 table = table.rename({"displayed": "Displayed Hit Rate", "true": "True Hit Rate"})
-pmf_table = pl.read_csv("data/hit_rate_pmf_table.csv")
-pmf_table = pmf_table.with_columns(pl.lit(1).alias("1rn"))
 st.dataframe(table, use_container_width=True)
 
 st.markdown(
     """
-    ## Info
+    ## Info and Background
     This page is for converting from the hit rates the game displays to the genuine hit rates going on under the hood.
 
-    Intuitively you'd think a hit rate of, say, 75, means that the game rolls a 100 sided die and 
-    so 75 of those rolls mean we hit and 25 of them miss. 
+    Let's examine a basic battle forecast shall we?
+    """
+)
+
+st.image("images/fe6_battle_forecast.png", caption="Source: Mekkah - FE6 HM Iron Man - Part 4")
+
+st.markdown(
+    """
+    Here we've got a fight between Rutger and a boss named Henning.
+    
+    According to the battle forecast our boy Rutger here has a displayed hit of 70. Intuitively you'd think
+    that means he has a 70% chance to hit right?
 
     However, the GBA Fire Emblem games use what's called a 2RN system. They actually roll two different dice and
-    take their average. This changes the math a lot. All you need to know is that the further away from 50 the 
-    displayed hit rate gets, the more extreme the real value is. High hit rates hit more than they should and
-    low hit rates hit less.
+    take their average. This changes the math a lot. Rutger really has a *true hit rate* of 82.3% because of this.
+    Really, all you need to know is that the further from 50 a displayed hit gets, the more off the real chance is.
+    Hit rates well above 50 hit more than they should and hit rates below 50 a whole lot less.
 
     My calculator is there to save you time on figuring out what the real values are.
     """
@@ -87,13 +95,6 @@ st.markdown(
     """
 )
 
-st.warning(
-    '''
-    Mathematical explanation still in progress. Might be a little dense currently.
-    ''',
-    icon="🚧️"
-)
-
 math = st.toggle("View the Mathematical Explanation")
 if math:
     with open("markdown_files/true_hit_explanation.md") as f:
@@ -105,23 +106,37 @@ if math:
     st.markdown(explanation)
 
     # PMF Plots
-    bar_tab, line_tab = st.tabs(["Bar Plot", "Line Plot"])
-    with bar_tab:
-        fig = create_plots(pmf_table, cdf=False, plot_type="bar")
+
+    uniform_data = pl.read_csv("data/true_hit_data/uniform_data.csv")
+    sum_tab, average_tab = st.tabs(["Sum: $X+Y$", "Average: $\\frac{X+Y}{2}$"])
+    with sum_tab:
+        data = pl.read_csv("data/true_hit_data/sum_pmf.csv")
+        fig = create_pmf_plots(data, uniform_data, xaxis_title="X+Y")
         st.write(fig)
-    with line_tab:
-        fig = create_plots(pmf_table, cdf=False, plot_type="line")
+
+    with average_tab:
+        data = pl.read_csv("data/true_hit_data/avg_pmf.csv")
+        fig = create_pmf_plots(data, uniform_data, xaxis_title="(X+Y)/2")
         st.write(fig)
+
+    st.markdown(
+        """
+        The ranges on this plot might initially be a bit confusing. Why is it going from $[0,198]$ with the sum????
+        Remember, each dice goes from $[0,99]$, so our max value is $99+99 = 198$. 
+        You'll also notice how the average one looks identical outside of the x axis being on a different range.
+        That'll be useful for us later!
+        """
+    )
 
     st.markdown(explanation_pt2)
 
     # CDF Plots
     bar_tab, line_tab = st.tabs(["Bar Plot", "Line Plot"])
     with bar_tab:
-        fig = create_plots(table, cdf=True, plot_type="bar")
+        fig = create_cdf_plots(table, plot_type="bar")
         st.write(fig)
 
     with line_tab:
-        fig = create_plots(table, cdf=True, plot_type="line")
+        fig = create_cdf_plots(table,plot_type="line")
         st.write(fig)
 

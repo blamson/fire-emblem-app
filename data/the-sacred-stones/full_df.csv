@@ -1,48 +1,48 @@
 ,Name,HP_growth,S/M,Skl_growth,Spd_growth,Lck_growth,Def_growth,Res_growth,Lv,Class,HP_base,Str,Skl_base,Spd_base,Lck_base,Def_base,Res_base,Mov,Con,Weapon Rank,Affin,Game,creature_campaign
-0,Amelia,60,35,40,40,50,30,15,1,Recruit,16,4,3,4,6,2,3,4,6,['E Lance'],['Thunder'],the-sacred-stones,False
-1,Artur,55,50,50,40,25,15,55,2,Monk,19,6,6,8,2,2,6,5,6,['E Light'],['Ice'],the-sacred-stones,False
-2,Caellach,85,50,45,45,20,30,20,12,Hero,47,19,14,13,14,15,13,6,13,"['A Sword', 'A Axe']",['Thunder'],the-sacred-stones,True
-3,Colm,75,40,40,65,45,25,20,2,Thief,18,4,4,10,8,3,1,6,6,['E Sword'],['Light'],the-sacred-stones,False
-4,Cormag,85,55,40,45,35,25,15,9,Wyvern Rider,30,14,9,10,4,12,2,7,11,['C Lance'],['Fire'],the-sacred-stones,False
-5,Dozla,85,50,35,40,30,30,25,1,Berserker,43,16,11,9,4,11,6,6,16,['B Axe'],['Thunder'],the-sacred-stones,False
-6,Duessel,85,55,40,30,20,45,30,8,Great Knight,41,17,12,12,8,17,9,6,15,"['A Sword', 'A Lance', 'A Axe']",['Anima'],the-sacred-stones,False
-7,Eirika,70,40,60,60,60,30,30,1,Lord,16,4,8,9,5,3,1,5,5,['E Sword'],['Light'],the-sacred-stones,False
-8,Ephraim,80,55,55,45,50,35,25,4,Lord,23,8,9,11,8,7,2,5,8,['D Lance'],['Fire'],the-sacred-stones,False
-9,Ewan,50,45,40,35,50,15,40,1,Pupil,15,3,2,5,5,0,3,4,5,['E Anima'],['Light'],the-sacred-stones,False
-10,Ewan’s Phantom,0,70,40,20,40,0,0,,,,,,,,,,,,,,,
-11,Fado,85,55,40,30,25,45,25,11,General,46,20,14,12,5,18,11,5,18,"['A Sword', 'A Lance', 'A Axe']",['Fire'],the-sacred-stones,True
-12,Forde,85,40,50,45,35,20,25,6,Cavalier,24,7,8,8,7,8,2,7,9,"['D Sword', 'C Lance']",['Wind'],the-sacred-stones,False
-13,Franz,80,40,40,50,40,25,20,1,Cavalier,20,7,5,7,2,6,1,7,9,"['E Sword', 'D Lance']",['Light'],the-sacred-stones,False
-14,Garcia,80,65,40,20,40,25,15,4,Fighter,28,8,7,7,3,5,1,5,14,['C Axe'],['Fire'],the-sacred-stones,False
-15,Gerik,90,45,40,30,30,35,25,10,Mercenary,32,14,13,13,8,10,4,5,13,['C Sword'],['Thunder'],the-sacred-stones,False
-16,Gilliam,90,45,35,30,30,55,20,4,Knight,25,9,6,3,3,9,3,4,14,['C Lance'],['Thunder'],the-sacred-stones,False
-17,Glen,85,45,50,45,20,35,40,12,Wyvern Lord,46,20,17,13,7,18,5,8,12,"['A Sword', 'A Lance']",['Wind'],the-sacred-stones,True
-18,Hayden,70,40,45,45,40,25,25,10,Ranger,37,17,14,15,17,12,12,7,10,"['A Sword', 'A Bow']",['Anima'],the-sacred-stones,True
+0,Eirika,70,40,60,60,60,30,30,1,Lord,16,4,8,9,5,3,1,5,5,['E Sword'],['Light'],the-sacred-stones,False
+1,Seth,90,50,45,45,25,40,30,1,Paladin,30,14,13,12,13,11,8,8,11,"['A Sword', 'A Lance']",['Anima'],the-sacred-stones,False
+2,Franz,80,40,40,50,40,25,20,1,Cavalier,20,7,5,7,2,6,1,7,9,"['E Sword', 'D Lance']",['Light'],the-sacred-stones,False
+3,Gilliam,90,45,35,30,30,55,20,4,Knight,25,9,6,3,3,9,3,4,14,['C Lance'],['Thunder'],the-sacred-stones,False
+4,Moulder,70,40,50,40,20,25,25,3,Priest,20,4,6,9,1,2,5,5,9,['C Staff'],['Anima'],the-sacred-stones,False
+5,Vanessa,50,35,55,60,50,20,30,1,Pegasus Knight,17,5,7,11,4,6,5,7,5,['D Lance'],['Anima'],the-sacred-stones,False
+6,Ross,70,50,35,30,40,25,20,1,Journeyman,15,5,2,3,8,3,0,4,8,['E Axe'],['Fire'],the-sacred-stones,False
+7,Garcia,80,65,40,20,40,25,15,4,Fighter,28,8,7,7,3,5,1,5,14,['C Axe'],['Fire'],the-sacred-stones,False
+8,Neimi,55,45,50,60,50,15,35,1,Archer,17,4,5,6,4,3,2,5,5,['D Bow'],['Fire'],the-sacred-stones,False
+9,Colm,75,40,40,65,45,25,20,2,Thief,18,4,4,10,8,3,1,6,6,['E Sword'],['Light'],the-sacred-stones,False
+10,Artur,55,50,50,40,25,15,55,2,Monk,19,6,6,8,2,2,6,5,6,['E Light'],['Ice'],the-sacred-stones,False
+11,Lute,45,65,30,45,45,15,40,1,Mage,17,6,6,7,8,3,5,5,3,['C Anima'],['Anima'],the-sacred-stones,False
+12,Natasha,50,60,25,40,60,15,55,1,Cleric,18,2,4,8,6,2,6,5,4,['D Staff'],['Ice'],the-sacred-stones,False
+13,Joshua,80,35,55,55,30,20,20,5,Myrmidon,24,8,13,14,7,5,2,5,8,['C Sword'],['Wind'],the-sacred-stones,False
+14,Ephraim,80,55,55,45,50,35,25,4,Lord,23,8,9,11,8,7,2,5,8,['D Lance'],['Fire'],the-sacred-stones,False
+15,Forde,85,40,50,45,35,20,25,6,Cavalier,24,7,8,8,7,8,2,7,9,"['D Sword', 'C Lance']",['Wind'],the-sacred-stones,False
+16,Kyle,90,50,40,40,20,25,20,5,Cavalier,25,9,6,7,6,9,1,7,10,"['D Sword', 'C Lance']",['Ice'],the-sacred-stones,False
+17,Tana,65,45,40,65,60,20,25,4,Pegasus Knight,20,7,9,13,8,6,7,7,5,['D Lance'],['Wind'],the-sacred-stones,False
+18,Amelia,60,35,40,40,50,30,15,1,Recruit,16,4,3,4,6,2,3,4,6,['E Lance'],['Thunder'],the-sacred-stones,False
 19,Innes,75,40,40,45,45,20,25,1,Sniper,31,14,13,15,14,10,9,6,9,['A Bow'],['Ice'],the-sacred-stones,False
-20,Ismaire,75,30,60,55,30,20,25,9,Swordmaster,33,16,20,23,12,8,15,6,7,['A Sword'],['Wind'],the-sacred-stones,True
-21,Joshua,80,35,55,55,30,20,20,5,Myrmidon,24,8,13,14,7,5,2,5,8,['C Sword'],['Wind'],the-sacred-stones,False
-22,Knoll,70,50,40,35,20,10,45,10,Shaman,22,13,9,8,0,2,10,5,7,['C Dark'],['Dark'],the-sacred-stones,False
-23,Knoll’s Phantom,0,50,50,40,55,0,0,,,,,,,,,,,,,,,
-24,Kyle,90,50,40,40,20,25,20,5,Cavalier,25,9,6,7,6,9,1,7,10,"['D Sword', 'C Lance']",['Ice'],the-sacred-stones,False
-25,Lute,45,65,30,45,45,15,40,1,Mage,17,6,6,7,8,3,5,5,3,['C Anima'],['Anima'],the-sacred-stones,False
-26,Lyon,85,50,55,55,30,45,55,14,Necromancer,44,22,13,11,4,17,19,6,7,"['S Dark', 'A Staff']",['Ice'],the-sacred-stones,True
-27,Lyon’s Phantom,0,60,45,30,60,0,0,,,,,,,,,,,,,,,
-28,L’Arachel,45,50,45,45,65,15,50,3,Troubadour,18,6,6,10,12,5,8,6,5,['D Staff'],['Light'],the-sacred-stones,False
-29,Marisa,75,30,55,60,50,15,25,5,Myrmidon,23,7,12,13,9,4,3,5,5,['D Sword'],['Ice'],the-sacred-stones,False
-30,Moulder,70,40,50,40,20,25,25,3,Priest,20,4,6,9,1,2,5,5,9,['C Staff'],['Anima'],the-sacred-stones,False
+20,Gerik,90,45,40,30,30,35,25,10,Mercenary,32,14,13,13,8,10,4,5,13,['C Sword'],['Thunder'],the-sacred-stones,False
+21,Tethys,85,5,10,70,80,30,75,1,Dancer,18,1,2,12,10,5,4,5,5,–,['Fire'],the-sacred-stones,False
+22,Marisa,75,30,55,60,50,15,25,5,Myrmidon,23,7,12,13,9,4,3,5,5,['D Sword'],['Ice'],the-sacred-stones,False
+23,L’Arachel,45,50,45,45,65,15,50,3,Troubadour,18,6,6,10,12,5,8,6,5,['D Staff'],['Light'],the-sacred-stones,False
+24,Dozla,85,50,35,40,30,30,25,1,Berserker,43,16,11,9,4,11,6,6,16,['B Axe'],['Thunder'],the-sacred-stones,False
+25,Saleh,50,30,25,40,40,30,35,1,Sage,30,16,18,14,11,8,13,6,8,"['A Anima', 'B Light', 'C Staff']",['Wind'],the-sacred-stones,False
+26,Ewan,50,45,40,35,50,15,40,1,Pupil,15,3,2,5,5,0,3,4,5,['E Anima'],['Light'],the-sacred-stones,False
+27,Cormag,85,55,40,45,35,25,15,9,Wyvern Rider,30,14,9,10,4,12,2,7,11,['C Lance'],['Fire'],the-sacred-stones,False
+28,Rennac,65,25,45,60,25,25,30,1,Rogue,28,10,16,17,5,9,11,6,7,['B Sword'],['Dark'],the-sacred-stones,False
+29,Duessel,85,55,40,30,20,45,30,8,Great Knight,41,17,12,12,8,17,9,6,15,"['A Sword', 'A Lance', 'A Axe']",['Anima'],the-sacred-stones,False
+30,Knoll,70,50,40,35,20,10,45,10,Shaman,22,13,9,8,0,2,10,5,7,['C Dark'],['Dark'],the-sacred-stones,False
 31,Myrrh,130,90,85,65,30,150,30,1,Manakete,15,3,1,5,3,2,7,6,5,–,['Wind'],the-sacred-stones,False
-32,Natasha,50,60,25,40,60,15,55,1,Cleric,18,2,4,8,6,2,6,5,4,['D Staff'],['Ice'],the-sacred-stones,False
-33,Neimi,55,45,50,60,50,15,35,1,Archer,17,4,5,6,4,3,2,5,5,['D Bow'],['Fire'],the-sacred-stones,False
+32,Syrene,70,40,50,60,30,20,50,1,Falcoknight,27,12,13,15,12,10,12,8,7,"['C Sword', 'A Lance']",['Thunder'],the-sacred-stones,False
+33,Caellach,85,50,45,45,20,30,20,12,Hero,47,19,14,13,14,15,13,6,13,"['A Sword', 'A Axe']",['Thunder'],the-sacred-stones,True
 34,Orson,80,55,45,40,25,45,30,3,Paladin,34,15,13,11,4,13,7,8,12,"['A Sword', 'A Lance']",['Dark'],the-sacred-stones,False
 35,Orson,80,55,45,40,25,45,30,13,Paladin,48,18,15,14,6,14,11,8,12,"['A Sword', 'A Lance']",['Dark'],the-sacred-stones,True
-36,Rennac,65,25,45,60,25,25,30,1,Rogue,28,10,16,17,5,9,11,6,7,['B Sword'],['Dark'],the-sacred-stones,False
-37,Riev,75,45,50,40,15,20,45,16,Bishop,49,14,21,19,9,16,18,6,7,"['S Light', 'A Staff']",['Dark'],the-sacred-stones,True
-38,Ross,70,50,35,30,40,25,20,1,Journeyman,15,5,2,3,8,3,0,4,8,['E Axe'],['Fire'],the-sacred-stones,False
-39,Saleh,50,30,25,40,40,30,35,1,Sage,30,16,18,14,11,8,13,6,8,"['A Anima', 'B Light', 'C Staff']",['Wind'],the-sacred-stones,False
-40,Selena,85,40,55,40,25,20,30,11,Mage Knight,38,13,13,16,10,11,17,7,6,"['A Anima', 'B Staff']",['Thunder'],the-sacred-stones,True
-41,Seth,90,50,45,45,25,40,30,1,Paladin,30,14,13,12,13,11,8,8,11,"['A Sword', 'A Lance']",['Anima'],the-sacred-stones,False
-42,Syrene,70,40,50,60,30,20,50,1,Falcoknight,27,12,13,15,12,10,12,8,7,"['C Sword', 'A Lance']",['Thunder'],the-sacred-stones,False
-43,Tana,65,45,40,65,60,20,25,4,Pegasus Knight,20,7,9,13,8,6,7,7,5,['D Lance'],['Wind'],the-sacred-stones,False
-44,Tethys,85,5,10,70,80,30,75,1,Dancer,18,1,2,12,10,5,4,5,5,–,['Fire'],the-sacred-stones,False
-45,Valter,80,40,55,50,15,20,20,13,Wyvern Knight,45,19,17,17,3,13,12,8,11,['S Lance'],['Ice'],the-sacred-stones,True
-46,Vanessa,50,35,55,60,50,20,30,1,Pegasus Knight,17,5,7,11,4,6,5,7,5,['D Lance'],['Anima'],the-sacred-stones,False
+36,Riev,75,45,50,40,15,20,45,16,Bishop,49,14,21,19,9,16,18,6,7,"['S Light', 'A Staff']",['Dark'],the-sacred-stones,True
+37,Ismaire,75,30,60,55,30,20,25,9,Swordmaster,33,16,20,23,12,8,15,6,7,['A Sword'],['Wind'],the-sacred-stones,True
+38,Selena,85,40,55,40,25,20,30,11,Mage Knight,38,13,13,16,10,11,17,7,6,"['A Anima', 'B Staff']",['Thunder'],the-sacred-stones,True
+39,Glen,85,45,50,45,20,35,40,12,Wyvern Lord,46,20,17,13,7,18,5,8,12,"['A Sword', 'A Lance']",['Wind'],the-sacred-stones,True
+40,Hayden,70,40,45,45,40,25,25,10,Ranger,37,17,14,15,17,12,12,7,10,"['A Sword', 'A Bow']",['Anima'],the-sacred-stones,True
+41,Valter,80,40,55,50,15,20,20,13,Wyvern Knight,45,19,17,17,3,13,12,8,11,['S Lance'],['Ice'],the-sacred-stones,True
+42,Fado,85,55,40,30,25,45,25,11,General,46,20,14,12,5,18,11,5,18,"['A Sword', 'A Lance', 'A Axe']",['Fire'],the-sacred-stones,True
+43,Lyon,85,50,55,55,30,45,55,14,Necromancer,44,22,13,11,4,17,19,6,7,"['S Dark', 'A Staff']",['Ice'],the-sacred-stones,True
+44,Knoll’s Phantom,0,50,50,40,55,0,0,,,,,,,,,,,,,,,
+45,Ewan’s Phantom,0,70,40,20,40,0,0,,,,,,,,,,,,,,,
+46,Lyon’s Phantom,0,60,45,30,60,0,0,,,,,,,,,,,,,,,

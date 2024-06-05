@@ -1,10 +1,8 @@
 import scipy
 import statistics
-import numpy as np
 import polars as pl
 import plotly.graph_objects as go
-from scipy.stats import triang
-import streamlit as st
+from plotly.subplots import make_subplots
 
 
 def true_hit_simulation(hit_rate, lower=0, upper=99, ntrials=10000):
@@ -38,28 +36,33 @@ def create_cdf_hit_table():
 
     print(data)
     df = pl.DataFrame(data)
-    df.write_csv("../data/hit_rate_table.csv")
+    df.write_csv("../data/cumulative_hit_rate_table.csv")
 
 
-def create_pmf_hit_table():
-    data = {
-        "hit_rate": [],
-        "2rn": []
+def create_xy_pmf_hit_table(filename: str, sum: bool = True):
+    x = {"min": 0, "max": 99}
+    z = {
+        "min": 2 * x["min"],
+        "max": 2 * x["max"]
     }
 
-    for i in range(0, 100 + 1, 1):
-        data["hit_rate"].append(i)
-        cdf_i = displayed_to_true_hit(i)
-        if i == 0:
-            data["2rn"].append(cdf_i)
-            continue
+    data = {
+        "joint_X_Y": [],
+        "percent": []
+    }
+    pmf, all_outcomes = populate_pmf_and_outcomes(x, z)
 
-        cdf_prev_i = displayed_to_true_hit(i-1)
-        prob = round(cdf_i - cdf_prev_i, 2)
-        data["2rn"].append(prob)
+    for i, outcomes in pmf.items():
+        prob = len(outcomes) / len(all_outcomes)
+        percent = round(prob * 100, 4)
 
-    df = pl.DataFrame(data)
-    df.write_csv("../data/hit_rate_pmf_table.csv")
+        if sum:
+            data["joint_X_Y"].append(int(i))
+        else:
+            data["joint_X_Y"].append(int(i) / 2)
+        data["percent"].append(percent)
+
+    pl.DataFrame(data).write_csv(filename)
 
 
 def create_simulated_hit_rate_table():
@@ -135,29 +138,18 @@ def displayed_to_true_hit(displayed_hit: int):
     return cdf
 
 
-def create_plots(data: pl.DataFrame, plot_type: str = "bar", cdf: bool = True):
+def create_cdf_plots(data: pl.DataFrame, plot_type: str = "bar", cdf: bool = True):
 
     fig = go.Figure()
 
-    if cdf:
-        parameters = {
-            "title": "Displayed Hit Rate Vs. Actual Probability",
-            "xaxis_title": "Displayed Hit Rate (%)",
-            "yaxis_title": "Actual Hit Rate (%)",
-            "xaxis_column": "Displayed Hit Rate",
-            "yaxis_column_2rn": "True Hit Rate",
-            "yaxis_column_1rn": "Displayed Hit Rate"
-        }
-
-    else:
-        parameters = {
-            "title": "1RN vs. 2RN Probability Mass Functions",
-            "xaxis_title": "Hit Rate (%)",
-            "yaxis_title": "Percent Chance (%)",
-            "xaxis_column": "hit_rate",
-            "yaxis_column_2rn": "2rn",
-            "yaxis_column_1rn": "1rn"
-        }
+    parameters = {
+        "title": "Displayed Hit Rate Vs. Actual Probability",
+        "xaxis_title": "Displayed Hit Rate (%)",
+        "yaxis_title": "Actual Hit Rate (%)",
+        "xaxis_column": "Displayed Hit Rate",
+        "yaxis_column_2rn": "True Hit Rate",
+        "yaxis_column_1rn": "Displayed Hit Rate"
+    }
 
     if plot_type == "line":
         fig.add_trace(go.Scatter(
@@ -181,4 +173,26 @@ def create_plots(data: pl.DataFrame, plot_type: str = "bar", cdf: bool = True):
         yaxis_title=parameters["yaxis_title"]
     )
 
+    return fig
+
+
+def create_pmf_plots(
+        data: pl.DataFrame,
+        uniform_data: pl.DataFrame,
+        xaxis_title: str = ""
+):
+
+    fig = make_subplots(rows=2, cols=1)
+    fig.add_trace(
+        go.Bar(x=data["joint_X_Y"], y=data["percent"], name="2RN"),
+        row=1, col=1
+    )
+    fig.add_trace(
+        go.Bar(x=uniform_data["hit_rate"], y=uniform_data["percent"], name="1RN"),
+        row=2, col=1
+    )
+    fig.update_yaxes(range=[0, 1.5], title_text="Percent (%)")
+    fig.update_xaxes(title_text=xaxis_title, row=1, col=1)
+    fig.update_xaxes(title_text="X", row=2, col=1)
+    fig.update_layout(title="Probability Mass Functions")
     return fig

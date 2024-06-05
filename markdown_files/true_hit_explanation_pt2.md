@@ -1,6 +1,8 @@
 ### The Inequality
 
-You might correct me on my last point there and say "well, why is the probability in the tool giving 0% chance for 0 if it's just really small"?
+You might say "well, why is the probability in the tool giving 0% chance for 0 if it's just really small"?
+Shouldnt $1/10000$ still be possible in game? Not quite.
+
 Remember earlier when we added the four rows together for $P(X<4)$? This is essentially an inequality we'd see with the 2RN system as well.
 So not only do we combine two random variables, the combination of the two rolls must also be *lower* than the displayed hit. 
 
@@ -13,7 +15,9 @@ $$
 So we add the two rolls together, divide them by 2 and see if that is lower than the displayed hit rate.
 
 So, if we were to look at $z=0$ where the displayed hit is 0 what we'd get is $P\left(\frac{X+Y}{2} < 0 \right)$ which isn't possible. 
-The lowest value we can get *is* 0. We can't go below it.
+The lowest value we can get *is* 0. We can't go below it. That's also why there isn't a 199 or 200 on the pmf plot earlier. 
+The dice max out at 99, so you can't get $99 + 100 = 199$ or $100 + 100 = 200$. Since you can't possibly get to those values,
+a displayed hit above $199/2 = 99.5$ is guaranteed.
 
 ### Addressing that division
 
